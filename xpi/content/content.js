@@ -88,6 +88,7 @@ async function init() {
           let [secs, url] = content.split(/\s*;\s*url\s*=\s*/i);
           if (url) {
             try {
+              url = url.replace(/^'|'$/g, '')
               let urlObj = new URL(url);
               if (!/^https?:/.test(urlObj.protocol)) {
                 continue;
